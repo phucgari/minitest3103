@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -48,7 +49,12 @@ public class PictureController {
     }
     @GetMapping("search")
     public String findByCode(String code, Model model){
-        List<Picture> list=pictureService.findByCodeContaining(code);
+        List<Picture> list;
+        try{
+            list=pictureService.findByCodeContaining(code);
+        }catch (IllegalArgumentException e){
+            list=new ArrayList<>();
+        }
         model.addAttribute("pictures",list);
         return "/picture/list";
     }
