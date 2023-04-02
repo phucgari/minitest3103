@@ -46,4 +46,10 @@ public class PictureController {
         model.addAttribute("pictures",list);
         return "/picture/list";
     }
+    @GetMapping("search")
+    public String findByCode(String code, Model model){
+        List<Picture> list=pictureService.findByCodeContaining(code);
+        model.addAttribute("pictures",list);
+        return "/picture/list";
+    }
 }

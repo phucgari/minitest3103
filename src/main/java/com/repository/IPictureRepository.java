@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IPictureRepository extends JpaRepository<Picture,Long> {
-    List<Picture> findByCodeContaining(String firstname);
+    List<Picture> findByCodeContaining(String code);
     List<Picture> findByCategory(Category category);
 }

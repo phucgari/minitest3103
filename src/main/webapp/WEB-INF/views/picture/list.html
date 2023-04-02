@@ -8,7 +8,26 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">Code</th>
+            <th scope="col">
+                <div class="dropdown">
+                    <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            type="button">
+                        Code
+                    </button>
+                    <form action="/picture/search" method="get">
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item">
+                            <input class="form-control" id="code" type="text" name="code">
+                        </li>
+                        <li class="dropdown-item">
+                            <button class="btn btn-primary" type="submit">search</button>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/picture/list">Return to list</a></li>
+                    </ul>
+                    </form>
+                </div>
+            </th>
             <th scope="col">Height</th>
             <th scope="col">Width</th>
             <th scope="col">Material</th>

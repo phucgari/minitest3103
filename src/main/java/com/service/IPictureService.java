@@ -7,6 +7,6 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface IPictureService extends IGenericService<Picture>{
-    List<Picture> findByCodeContaining(String firstname);
+    List<Picture> findByCodeContaining(String code);
     List<Picture> findByCategory(Category category);
 }

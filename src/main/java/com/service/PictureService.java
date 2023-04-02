@@ -32,8 +32,8 @@ public class PictureService implements IPictureService{
     }
 
     @Override
-    public List<Picture> findByCodeContaining(String firstname) {
-        return pictureRepository.findByCodeContaining(firstname);
+    public List<Picture> findByCodeContaining(String code) {
+        return pictureRepository.findByCodeContaining(code);
     }
 
     @Override
