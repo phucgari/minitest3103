@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/picture")
 public class PictureController {
@@ -37,5 +39,11 @@ public class PictureController {
     public String savePicture(Picture picture){
         pictureService.save(picture);
         return "redirect:/picture/list";
+    }
+    @GetMapping("category/{category}")
+    public String findByCategory(Category category,Model model){
+        List<Picture> list=pictureService.findByCategory(category);
+        model.addAttribute("pictures",list);
+        return "/picture/list";
     }
 }

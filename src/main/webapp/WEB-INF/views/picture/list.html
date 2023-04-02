@@ -4,7 +4,42 @@
 </head>
 <body>
 <div class="container">
-
+    <a href="/picture/create" class="btn btn-primary" tabindex="-1" role="button">Create New Picture</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Height</th>
+            <th scope="col">Width</th>
+            <th scope="col">Material</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">
+                <div class="dropdown">
+                    <button aria-expanded="false" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                            type="button">
+                        Category
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li th:each="c:${categories}"><a class="dropdown-item" th:href='@{/picture/category/__${c.id}__}' th:text="${c.name}"></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/picture/list">Return to list</a></li>
+                    </ul>
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody th:each="p:${pictures}">
+        <tr>
+            <th th:text="${p.code}"></th>
+            <th th:text="${p.height}"></th>
+            <th th:text="${p.width}"></th>
+            <th th:text="${p.material}"></th>
+            <th th:text="${p.description}"></th>
+            <th th:text="${p.price}"></th>
+            <th th:if="${p.category!= null}" th:text="${p.category.name}"></th>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

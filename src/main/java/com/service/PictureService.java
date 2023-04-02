@@ -1,5 +1,6 @@
 package com.service;
 
+import com.model.Category;
 import com.model.Picture;
 import com.repository.IPictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,15 @@ public class PictureService implements IPictureService{
     @Override
     public void delete(long id) {
         pictureRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Picture> findByCodeContaining(String firstname) {
+        return pictureRepository.findByCodeContaining(firstname);
+    }
+
+    @Override
+    public List<Picture> findByCategory(Category category) {
+        return pictureRepository.findByCategory(category);
     }
 }
