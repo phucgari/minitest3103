@@ -5,6 +5,7 @@ import com.repository.IPictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class PictureService implements IPictureService{
     @Autowired
@@ -15,8 +16,8 @@ public class PictureService implements IPictureService{
     }
 
     @Override
-    public Picture showByIndex(long id) {
-        return pictureRepository.findById(id).get();
+    public Optional<Picture> showByIndex(long id) {
+        return pictureRepository.findById(id);
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.repository.ICategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class CategoryService implements ICategoryService{
     @Autowired
@@ -15,8 +16,8 @@ public class CategoryService implements ICategoryService{
     }
 
     @Override
-    public Category showByIndex(long id) {
-        return categoryRepository.findById(id).get();
+    public Optional<Category> showByIndex(long id) {
+        return categoryRepository.findById(id);
     }
 
     @Override

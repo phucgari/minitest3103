@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/layout :: header('Create New Picture')">
-    <meta charset="UTF-8">
-    <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+    <form action="/picture/save" method="post" th:object="${picture}">
+        <div class="mb-3">
+            <label for="code" class="form-label">code</label>
+            <input type="text" class="form-control" id="code" th:field="*{code}">
+        </div>
+        <div class="mb-3">
+            <label for="height" class="form-label">height</label>
+            <input type="text" class="form-control" id="height" th:field="*{height}">
+        </div>
+        <div class="mb-3">
+            <label for="width" class="form-label">width</label>
+            <input type="text" class="form-control" id="width" th:field="*{width}">
+        </div>
+        <div class="mb-3">
+            <label for="material" class="form-label">material</label>
+            <input type="text" class="form-control" id="material" th:field="*{material}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">description</label>
+            <input type="text" class="form-control" id="description" th:field="*{description}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">price</label>
+            <input type="text" class="form-control" id="price" th:field="*{price}">
+        </div>
+        <div class="mb-3">
+            <select class="form-select" aria-label="category selection" th:field="*{category}">
+                <option selected th:value="null">select category</option>
+                <option th:each="c:${categories}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
 </body>
 </html>
